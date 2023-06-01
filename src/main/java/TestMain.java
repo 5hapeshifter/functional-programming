@@ -5,7 +5,7 @@ public class TestMain {
 
     public static void main(String[] args) {
 
-        int a = 5;
+        int v = 5;
         Dog d = new Dog();
 
         // implementacao da interface com classe anonima
@@ -36,6 +36,35 @@ public class TestMain {
         // GreetingService h = String::toUpperCase; // method reference
         GreetingService g = (n) -> n.toUpperCase();
 
-        System.out.println(g.greet("Suleiman"));
+        String s = "Suleiman";
+        System.out.println(g.greet(s));
+
+        // higher order function -
+        // passando a funcao lambda como argumento e definindo o comportamento que queremos, implementado do java 8
+        test((n) -> n.toUpperCase() + n.toLowerCase() + n.length());
+        test(a -> a.substring(1,3));
+        test(b -> b.replace("d", "D"));
+
+        test(n -> n.toLowerCase());
+        test(n -> n.toUpperCase());
+        test(n -> n.length() + "");
+
+
+    }
+
+    private static void test(GreetingService g){
+        String returnedString = g.greet("udemy");
+        System.out.println(returnedString);
+
+    }
+
+    private static void convertToUppercase(String s) {
+        String returnedString = s.toUpperCase();
+        System.out.println(returnedString);
+    }
+
+    private static void convertToLowercase(String s) {
+        String returnedString = s.toLowerCase();
+        System.out.println(returnedString);
     }
 }
