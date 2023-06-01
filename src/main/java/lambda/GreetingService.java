@@ -4,6 +4,6 @@ package lambda;
 @FunctionalInterface
 public interface GreetingService {
 
-    void greet(String firstName, String lastName, int age);
+    String greet(String firstName);
 
 }
