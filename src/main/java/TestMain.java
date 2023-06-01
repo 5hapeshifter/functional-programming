@@ -34,37 +34,64 @@ public class TestMain {
 
         // retornando valores - single line declaration
         // GreetingService h = String::toUpperCase; // method reference
-        GreetingService g = (n) -> n.toUpperCase();
-
-        String s = "Suleiman";
-        System.out.println(g.greet(s));
+//        GreetingService g = (n) -> n.toUpperCase();
+//
+//        String s = "Suleiman";
+//        System.out.println(g.greet(s));
 
         // higher order function -
         // passando a funcao lambda como argumento e definindo o comportamento que queremos, implementado do java 8
-        test((n) -> n.toUpperCase() + n.toLowerCase() + n.length());
-        test(a -> a.substring(1,3));
-        test(b -> b.replace("d", "D"));
+//        test((n) -> n.toUpperCase() + n.toLowerCase() + n.length());
+//        test(a -> a.substring(1,3));
+//        test(b -> b.replace("d", "D"));
 
-        test(n -> n.toLowerCase());
-        test(n -> n.toUpperCase());
-        test(n -> n.length() + "");
+        // When lambda is executed
+//        System.out.println("Starting executtion");
+//
+//        test(s -> {
+//            System.out.println("Inside lambda");
+//           return s.toUpperCase();
+//           // Result - A ordem nao e comum, pq lambda nao e um metodo implementado, mas sim uma declaracao
+//            Starting executtion
+//            Inside test method. Receive greeting service
+//            Inside lambda
+//            UDEMY
+//            Ending executtion
+//        });
+//
+//        System.out.println("Ending executtion");
 
+        // Higher order function part 3 - atribuindo uma lambda function a uma variavel e retornando a implementacao por meio do metodo
+        String ss = getLambda().greet("data");
+        System.out.println(ss);
 
     }
 
+//    private static void test(GreetingService g){
+//        System.out.println("Inside test method. Receive greeting service");
+//        String returnedString = g.greet("udemy");
+//        System.out.println(returnedString);
+//
+//    }
     private static void test(GreetingService g){
-        String returnedString = g.greet("udemy");
-        System.out.println(returnedString);
+        g.greet("udemy");
+        System.out.println("Inside test method. Received greeting service");
 
     }
 
-    private static void convertToUppercase(String s) {
-        String returnedString = s.toUpperCase();
-        System.out.println(returnedString);
+    private static GreetingService getLambda() {
+        GreetingService g = (s) -> s.toUpperCase();
+        return g;
     }
 
-    private static void convertToLowercase(String s) {
-        String returnedString = s.toLowerCase();
-        System.out.println(returnedString);
+
+    private static int getNumber() {
+        System.out.println("Called getNumber");
+        return 5;
     }
+
+    private static void receiveNumber(int i) {
+        System.out.println("Receive number is :: " + i);
+    }
+
 }
