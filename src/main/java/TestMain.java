@@ -1,7 +1,13 @@
 import lambda.GreetingService;
+import lambda.StringOperations;
 import polymorphism.Dog;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestMain {
+
+    private static final List<String> list = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -62,8 +68,28 @@ public class TestMain {
 //        System.out.println("Ending executtion");
 
         // Higher order function part 3 - atribuindo uma lambda function a uma variavel e retornando a implementacao por meio do metodo
-        String ss = getLambda().greet("data");
-        System.out.println(ss);
+//        String ss = getLambda().greet("data");
+//        System.out.println(ss);
+
+        // Utilizando method reference, não aceita parametro, pois a variavel e atribuida automaticamente ao metodo referenciado
+//        StringOperations opl = System.out::println;
+//        opl.accept("udemy");
+        // Retornando um boolean
+//        StringOperations opl = Objects::isNull;
+//        System.out.println(opl.accept("sssas"));
+
+//        StringOperations opl = String::toUpperCase;
+//        System.out.println(opl.accept("ssas"));;
+
+        // Passando dois parametros com method reference
+        // o metodo sera invocado dessa forma ~ (s) -> s1.concat(s2);
+//        StringOperations opl = String::concat;
+//        System.out.println(opl.accept("ab", "cd"));
+
+        // exemplo de uso com lista
+        StringOperations opl = list::add;
+        opl.accept("udemy");
+        System.out.println(list);
 
     }
 
