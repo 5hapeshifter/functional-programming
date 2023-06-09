@@ -3,7 +3,9 @@ import lambda.StringOperations;
 import polymorphism.Dog;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class TestMain {
 
@@ -87,9 +89,9 @@ public class TestMain {
 //        System.out.println(opl.accept("ab", "cd"));
 
         // exemplo de uso com lista
-        StringOperations opl = list::add;
-        opl.accept("udemy");
-        System.out.println(list);
+//        StringOperations opl = list::add;
+//        opl.accept("udemy");
+//        System.out.println(list);
 
     }
 
@@ -99,25 +101,27 @@ public class TestMain {
 //        System.out.println(returnedString);
 //
 //    }
-    private static void test(GreetingService g){
-        g.greet("udemy");
-        System.out.println("Inside test method. Received greeting service");
+//    private static void test(GreetingService g){
+//        g.greet("udemy");
+//        System.out.println("Inside test method. Received greeting service");
+//
+//    }
+//
+//    private static GreetingService getLambda() {
+//        GreetingService g = (s) -> s.toUpperCase();
+//        return g;
+//    }
+//
+//
+//    private static int getNumber() {
+//        System.out.println("Called getNumber");
+//        return 5;
+//    }
+//
+//    private static void receiveNumber(int i) {
+//        System.out.println("Receive number is :: " + i);
+//    }
 
-    }
 
-    private static GreetingService getLambda() {
-        GreetingService g = (s) -> s.toUpperCase();
-        return g;
-    }
-
-
-    private static int getNumber() {
-        System.out.println("Called getNumber");
-        return 5;
-    }
-
-    private static void receiveNumber(int i) {
-        System.out.println("Receive number is :: " + i);
-    }
 
 }
