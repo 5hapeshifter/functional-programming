@@ -4,8 +4,6 @@ public class TaskAnswers {
 
     public static void main(String[] args) {
 
-
-
         //MathOperation add = (a, b) -> a + b;
         MathOperation add = Integer::sum;
         MathOperation subtract = (a, b) -> a - b;

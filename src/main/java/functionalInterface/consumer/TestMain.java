@@ -33,8 +33,13 @@ public class TestMain {
             System.out.println("I am writing into log file :: " + s);
         };
 
-        // Encadeamento de Consumer - para encadear os consumers eles devem ser do mesmo tipo.
-        Consumer<String> dbLogConsumer = dbConsumer.andThen(loggingConsumer);
+        Consumer<String> endingConsumer = (s) -> {
+            System.out.println("Finally..." + s);
+        };
+
+        // Encadeamento de Consumer - para encadear os consumers eles devem ser do mesmo tipo e sempre utilizarao a mesma referencia do objeto manipulado.
+        Consumer<String> dbLogConsumer = dbConsumer.andThen(loggingConsumer).andThen(endingConsumer);
+        dbLogConsumer.accept("Suleiman");
 
 //        Map<String, Consumer<String>> map = new HashMap<>();
 //        map.put("db", dbConsumer);
