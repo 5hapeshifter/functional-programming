@@ -18,15 +18,26 @@ public class TestMain {
         list.add(8);
         list.add(9);
 
+//        list.stream()
+//                /*
+//                    Numeros encontrados / numero * numero
+//                 */
+//                .filter(integer -> integer % 2 == 0)
+//                .limit(3)
+//                .map(integer -> integer * integer)
+//                .forEach(System.out::println);
+
         list.stream()
-                /*
-                    Numeros encontrados / numero * numero
-                 */
-                .filter(integer -> integer % 2 == 0)
+                .filter(i -> {
+                    System.out.println("filter-received :: " + i);
+                    return i % 2 == 0;
+                        })
                 .limit(3)
-                .map(integer -> integer * integer)
+                .map(i -> {
+                    System.out.println("map-received :: " + i);
+                    return i * i;
+                })
                 .forEach(System.out::println);
-        ;
 
     }
 }
