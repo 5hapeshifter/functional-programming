@@ -23,10 +23,12 @@ public class CheckboxSelectionTest {
     @Test(dataProvider = "gender")
     public void googleTest(String gender) {
         this.driver.get("https://vins-udemy.s3.amazonaws.com/java/html/java8-stream-table.html");
+        //this.driver.get("https://vins-udemy.s3.amazonaws.com/java/html/java8-stream-table-1.html"); // whith empty tr - throw exception
         this.driver.findElements(By.tagName("tr")) // rows
                 .stream()
                 .skip(1)
                 .map(tr -> tr.findElements(By.tagName("td"))) // td List
+                .filter(tdList -> tdList.size() == 4) // verifying content list is not empty
                 .filter(tdList -> tdList.get(1).getText().equalsIgnoreCase(gender))// gender
                 .map(tdList -> tdList.get(3)) // td containing checkbox
                 .map(td -> td.findElement(By.tagName("input")))
