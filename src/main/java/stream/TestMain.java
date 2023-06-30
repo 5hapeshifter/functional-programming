@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TestMain {
 
@@ -214,41 +215,72 @@ public class TestMain {
 //        System.out.println("Original :: " + joining);
 
         /*
-         * groupingBy,
+         * groupingBy, fid first
          */
 
-        List<String> list = new ArrayList<>();
-        list.add("apple");
-        list.add("apple");
-        list.add("Airplane");
-        list.add("ball");
-        list.add("Boy");
-        list.add("cat");
-        list.add("dog");
-        list.add("Delta");
+//        List<String> list = new ArrayList<>();
+//        list.add("apple");
+//        list.add("apple");
+//        list.add("Airplane");
+//        list.add("ball");
+//        list.add("Boy");
+//        list.add("cat");
+//        list.add("dog");
+//        list.add("Delta");
+//
+//        Map<Integer, List<String>> collect = list.stream()
+//                .collect(Collectors.groupingBy(s -> s.length()));
+//
+//        System.out.println(collect);
+//
+//        Map<Character, List<String>> collectChar = list.stream()
+//                .collect(Collectors.groupingBy(s -> s.charAt(0)));
+//
+//        System.out.println(collectChar);
+//
+//        Optional<String> first = list.stream().findFirst();
+//        System.out.println("First:: " + first);
+//
+//    /*
+//        Parallel aumenta a eficiência de execução pq cria threads que executam processos paralelos, diminuindo o tempo de execucao.
+//    */
+//
+//        Map<Integer, List<String>> parallel = list.stream()
+//                .parallel()
+//                .collect(Collectors.groupingBy(s -> s.length()));
 
-        Map<Integer, List<String>> collect = list.stream()
-                .collect(Collectors.groupingBy(s -> s.length()));
+        /*
+         * Reusable stream
+         */
 
-        System.out.println(collect);
+//        List<String> list = new ArrayList<>();
+//        list.add("apple");
+//        list.add("apple");
+//        list.add("Airplane");
+//        list.add("ball");
+//        list.add("Boy");
+//        list.add("cat");
+//        list.add("dog");
+//        list.add("Delta");
+//
+//        Stream<String> stream = list.stream()
+//                .filter(s -> s.length() > 3);
+//
+//        // executando os dois prints abaixo estoura IllegalStateException, pq esta ocorrendo dois processos ao mesmo tempo em uma lista de dados
+//        stream.forEach(s -> System.out.println(s));
+//        stream.forEach(s -> System.out.println(s.toUpperCase()));
 
-        Map<Character, List<String>> collectChar = list.stream()
-                .collect(Collectors.groupingBy(s -> s.charAt(0)));
+        /*
+            Stream source = gerando stream e usando os dados a partir de objetos.
+         */
+        String a = "Ball";
+        String b = "Delta";
+        String c = "Apple";
 
-        System.out.println(collectChar);
-
-        Optional<String> first = list.stream().findFirst();
-        System.out.println("First:: " + first);
-
-    /*
-        Parallel aumenta a eficiência de execução pq cria threads que executam processos paralelos, diminuindo o tempo de execucao.
-    */
-
-        Map<Integer, List<String>> parallel = list.stream()
-                .parallel()
-                .collect(Collectors.groupingBy(s -> s.length()));
-
-
+        System.out.println(
+                Stream.of(a, b, c)
+                        .min(Comparator.naturalOrder())
+        );
 
     }
 }
