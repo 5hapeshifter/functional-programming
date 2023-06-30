@@ -237,7 +237,18 @@ public class TestMain {
 
         System.out.println(collectChar);
 
+        Optional<String> first = list.stream().findFirst();
+        System.out.println("First:: " + first);
+
+    /*
+        Parallel aumenta a eficiência de execução pq cria threads que executam processos paralelos, diminuindo o tempo de execucao.
+    */
+
+        Map<Integer, List<String>> parallel = list.stream()
+                .parallel()
+                .collect(Collectors.groupingBy(s -> s.length()));
+
+
 
     }
-
 }
