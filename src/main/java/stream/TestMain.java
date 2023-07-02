@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class TestMain {
@@ -273,13 +275,49 @@ public class TestMain {
         /*
             Stream source = gerando stream e usando os dados a partir de objetos.
          */
-        String a = "Ball";
-        String b = "Delta";
-        String c = "Apple";
+//        String a = "Ball";
+//        String b = "Delta";
+//        String c = "Apple";
+//
+//        System.out.println(
+//                Stream.of(a, b, c)
+//                        .min(Comparator.naturalOrder())
+//        );
 
+        List<Integer> list = new ArrayList<>();
+
+        Collections.addAll(list, 1,2,3,4,5,6,7,8,9);
+
+        int sum = 0;
+
+//        for (int i : list) {
+//            sum = sum + 1;
+//        }
+
+//        list.stream() // da erro usando stream dessa forma
+//                        .forEach(i -> {
+//                            sum = sum + i;
+//                        });
+        // Método de somar todos elementos de um array - REDUCE
+//        Optional<Integer> reduce = list.stream()
+//                .reduce((a, b) -> {
+//                    // o resultada de cada execucao, eh armazenado na primeira variavel da lambda expression
+//                    System.out.println(a + "::" + b);
+//                    return a + b;
+//                });
+//
+//        System.out.println(reduce.get());
+
+        // Type primitive stream, o mapToInt transforma em uma IntStream que tem os metodos matematicos de soma, média e etc disponiveis
+//        DoubleStream
+//        IntStream
         System.out.println(
-                Stream.of(a, b, c)
-                        .min(Comparator.naturalOrder())
+                list.stream()
+                        .mapToInt(a -> a)
+                        .mapToLong(a -> a)
+//                        .mapToDouble(a -> a)
+//                        .boxed() // Converte de IntStream para Stream<Integer>
+                        .sum()
         );
 
     }

@@ -1,4 +1,4 @@
-package compare;
+package compareComparator;
 
 public class Student {
 

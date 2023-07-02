@@ -1,4 +1,4 @@
-package compare;
+package compareComparator;
 
 import java.util.Comparator;
 import java.util.Optional;
