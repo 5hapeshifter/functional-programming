@@ -284,11 +284,11 @@ public class TestMain {
 //                        .min(Comparator.naturalOrder())
 //        );
 
-        List<Integer> list = new ArrayList<>();
-
-        Collections.addAll(list, 1,2,3,4,5,6,7,8,9);
-
-        int sum = 0;
+//        List<Integer> list = new ArrayList<>();
+//
+//        Collections.addAll(list, 1,2,3,4,5,6,7,8,9);
+//
+//        int sum = 0;
 
 //        for (int i : list) {
 //            sum = sum + 1;
@@ -311,6 +311,12 @@ public class TestMain {
         // Type primitive stream, o mapToInt transforma em uma IntStream que tem os metodos matematicos de soma, média e etc disponiveis
 //        DoubleStream
 //        IntStream
+
+        List<Integer> list = new ArrayList<>();
+
+        Collections.addAll(list, 1,2,3,4,5,6,7,8,9);
+
+        int sum = 0;
         System.out.println(
                 list.stream()
                         .mapToInt(a -> a)
@@ -319,6 +325,10 @@ public class TestMain {
 //                        .boxed() // Converte de IntStream para Stream<Integer>
                         .sum()
         );
+        //foreach com intStream
+        IntStream.range(1,10)
+                .forEach(i -> System.out.println("Hello world :: " + i));
+
 
     }
 }
