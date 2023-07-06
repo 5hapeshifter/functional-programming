@@ -14,7 +14,6 @@ public class Java9 {
                         .dropWhile(i -> i < 5) // dropWhile funciona igual ao takeWhile, se tiver mais dados depois, eles nao serao analisados
                         .toList()
         );
-
         List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, null); // Forma de criar uma lista imutavel, nao pode adicionar nem remover
         //List<Integer> list2 = List.of(1, 2, 3, 4); // Forma de criar uma lista imutavel, nao pode adicionar nem remover
         Set<String> set = Set.of("ab", "bc", "cd"); // set imutavel
