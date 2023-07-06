@@ -1,5 +1,6 @@
 package java9;
 
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Java9 {
@@ -14,8 +15,15 @@ public class Java9 {
                         .toList()
         );
 
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, null); // Forma de criar uma lista imutavel, nao pode adicionar nem remover
+        //List<Integer> list2 = List.of(1, 2, 3, 4); // Forma de criar uma lista imutavel, nao pode adicionar nem remover
+        Set<String> set = Set.of("ab", "bc", "cd"); // set imutavel
+        //list1.add(6);
+        //list1.remove(2);
+        //set.remove("ddd");
+        Map<Integer, String> map = Map.of(1, "suleiman", 2, "samir");
+//        map.put(3, "sonia");
+        map.remove(2);
 
     }
-
-
 }
